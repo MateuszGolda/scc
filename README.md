@@ -1,4 +1,4 @@
-### Simple csv converter.
+# Simple csv converter.
 
 To run:
 
