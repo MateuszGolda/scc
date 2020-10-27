@@ -1,7 +1,7 @@
 package com.codecool.scc;
 
-import com.codecool.scc.file.FilesReader;
-import com.codecool.scc.output.OutputFormatterFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ConverterApplication {
     public static void main(String[] args) {
@@ -10,7 +10,11 @@ public class ConverterApplication {
             return;
         }
 
-        SimpleCsvConverter converter = new SimpleCsvConverter(new FilesReader(), new OutputFormatterFactory());
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+                "classpath:META-INF/beans.xml");
+        SimpleCsvConverter converter = applicationContext.
+                getBean("simpleCsvConverter", SimpleCsvConverter.class);
+
         if (args.length == 1) {
             System.out.println("converting to table");
             converter.convert(args[0]);
