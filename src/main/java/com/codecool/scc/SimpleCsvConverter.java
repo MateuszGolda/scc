@@ -4,13 +4,8 @@ import com.codecool.scc.file.FilesReader;
 import com.codecool.scc.output.OutputFormatterFactory;
 
 public class SimpleCsvConverter {
-    private final FilesReader filesReader;
-    private final OutputFormatterFactory outputFormatterFactory;
-
-    public SimpleCsvConverter(FilesReader filesReader, OutputFormatterFactory outputFormatterFactory) {
-        this.filesReader = filesReader;
-        this.outputFormatterFactory = outputFormatterFactory;
-    }
+    private FilesReader filesReader;
+    private OutputFormatterFactory outputFormatterFactory;
 
     void convert(String filePath, String outputFormat) {
         outputFormatterFactory.createByFormat(outputFormat).printToConsole(filesReader.readData(filePath));
@@ -18,5 +13,13 @@ public class SimpleCsvConverter {
 
     void convert(String filePath) {
         convert(filePath, "table");
+    }
+
+    public void setFilesReader(FilesReader filesReader) {
+        this.filesReader = filesReader;
+    }
+
+    public void setOutputFormatterFactory(OutputFormatterFactory outputFormatterFactory) {
+        this.outputFormatterFactory = outputFormatterFactory;
     }
 }
