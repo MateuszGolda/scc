@@ -1,5 +1,8 @@
 package com.codecool.scc.output;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class OutputFormatterFactory {
     public OutputFormatter createByFormat(String outputFormat) {
         if (outputFormat.equals("xml")) return new XmlOutputFormatter();

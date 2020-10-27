@@ -1,14 +1,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="filesReader" class="com.codecool.scc.file.FilesReader"/>
-    <bean id="outputFormatterFactory" class="com.codecool.scc.output.OutputFormatterFactory"/>
-
-    <bean id="simpleCsvConverter" class="com.codecool.scc.SimpleCsvConverter">
-        <property name="filesReader" ref="filesReader"/>
-        <property name="outputFormatterFactory" ref="outputFormatterFactory"/>
-    </bean>
-
+    <context:component-scan base-package="com.codecool.scc"/>
 </beans>

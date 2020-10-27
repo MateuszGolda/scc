@@ -1,9 +1,12 @@
 package com.codecool.scc.file;
 
+import org.springframework.stereotype.Service;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+@Service
 public class FilesReader {
     public Scanner readData(String filePath) {
         Scanner sc = null;
